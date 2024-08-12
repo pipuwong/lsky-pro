@@ -160,7 +160,7 @@ class ImageService
                 // 获取拓展名，判断是否需要转换
                 $format = $format ?: $extension;
                 $filename = Str::replaceLast($extension, $format, $file->getClientOriginalName());
-                $handleImage = InterventionImage::make($file)->save($format, $quality);
+                $handleImage = InterventionImage::make($file)->save($filename, $quality);
                 $file = new UploadedFile($handleImage->basePath(), $filename, $handleImage->mime());
                 // 重新设置拓展名
                 $extension = $format;
